@@ -59,7 +59,7 @@
   box-sizing: border-box;
   opacity: 0;
   transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-  min-height: 250px;
+  height: 250px;
   /* Ensure space for large icons */
 }
 
@@ -163,7 +163,7 @@
 .timeline-content {
 
   /* Moved background to ::before to allow zooming/cropping of white borders */
-  padding: 40px 40px;
+  padding: 30px 55px;
   position: relative;
   border-radius: 6px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -175,6 +175,7 @@
 
 /* Pseudo-element for the zoomed background image */
 .timeline-content::before {
+
   content: "";
   position: absolute;
   top: 0;
@@ -196,7 +197,7 @@
 }
 
 .timeline-title {
-  margin-top: 0;
+  margin: 0;
   font-size: 1.5rem;
   font-weight: bold;
 }

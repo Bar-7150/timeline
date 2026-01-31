@@ -1,7 +1,8 @@
 import React from 'react';
 import './timeline.css';
+import TimelineContainer from './TimelineContainer';
 
-interface YearData {
+export interface YearData {
     year: string | number;
     title: string;
     icon: string;
@@ -83,6 +84,8 @@ export default function Timeline() {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add("in-view");
+                    } else {
+                        entry.target.classList.remove("in-view");
                     }
                 });
             },
@@ -136,19 +139,11 @@ export default function Timeline() {
     return (
         <div className="timeline" ref={timelineRef}>
             {yearsData.map((item, index) => (
-                <div
+                <TimelineContainer
                     key={index}
-                    className={`timeline-container ${index % 2 === 0 ? 'left' : 'right'}`}
-                >
-                    <div className="timeline-icon">
-                        <img src={item.icon} alt={item.title} />
-                    </div>
-                    <div className="timeline-content">
-                        {item.title && <h3 className="timeline-title">{item.title}</h3>}
-                        {item.description && <p>{item.description}</p>}
-                    </div>
-                    {item.year && <span className="timeline-date">{item.year}</span>}
-                </div>
+                    data={item}
+                    position={index % 2 === 0 ? 'left' : 'right'}
+                />
             ))}
         </div>
     );
