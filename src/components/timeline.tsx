@@ -101,7 +101,7 @@ export default function Timeline() {
             const windowHeight = window.innerHeight;
 
             // Calculate how much of the timeline is visible/scrolled past
-            // Start growing when top enters valid area (e.g. 20% down screen)
+            // Start growing when top enters valid area
             const startOffset = windowHeight * 0.2;
             const scrolled = windowHeight - rect.top - startOffset;
 
@@ -125,7 +125,7 @@ export default function Timeline() {
         };
 
         window.addEventListener("scroll", handleScroll);
-        updateLine(); // Initial check
+        updateLine();
 
         return () => {
             items.forEach((item) => observer.unobserve(item));

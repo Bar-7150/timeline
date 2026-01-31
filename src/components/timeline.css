@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
 /* The actual timeline (the vertical ruler) */
 .timeline {
+  font-family: 'Satisfy', cursive;
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
@@ -21,14 +24,18 @@
   background-size: 100% auto;
   background-color: transparent;
   top: 0;
-  /* Controlled by JS via scroll */
+
   height: var(--line-height, 0%);
   transition: height 0.3s linear;
-  animation: wave-flow 2s linear infinite;
+  /* animation: wave-flow 2s linear infinite; */
 
   left: 50%;
   margin-left: -10px;
   z-index: -1;
+
+  /* Fade out the bottom */
+  -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
 }
 
 @keyframes wave-flow {
@@ -52,7 +59,7 @@
   box-sizing: border-box;
   opacity: 0;
   transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-  min-height: 150px;
+  min-height: 250px;
   /* Ensure space for large icons */
 }
 
@@ -81,7 +88,7 @@
   width: 130px;
   height: 130px;
   right: -30px;
-  top: 15px;
+  top: -45px;
   z-index: 10;
   display: flex;
   align-items: center;
@@ -201,10 +208,12 @@
 }
 
 .timeline-date {
+  font-size: 55px;
+
   position: absolute;
-  top: 20px;
+  top: 80px;
   /* Align with top of content roughly */
-  font-weight: bold;
+  font-weight: 900;
   color: #666;
   width: 100%;
   text-align: right;
